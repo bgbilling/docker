@@ -1,8 +1,0 @@
-FROM bgbilling/base-bgbilling:7.2
-
-COPY wrapper.sh /usr/local/bin/
-
-HEALTHCHECK --start-period=10m --interval=30s --timeout=10s --retries=20 \
-  CMD nc -z 127.0.0.1 9066 || exit 1
-
-CMD ["/usr/local/bin/wrapper.sh"]
