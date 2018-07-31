@@ -9,6 +9,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     netcat \
     ca-certificates \
     sudo \
+    ps \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* \
   && rm -rf /var/cache/apk/* \
