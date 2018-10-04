@@ -22,5 +22,4 @@ ACTIVEMQ_SHA512=450469a36147cef8dc3ef5f98de7e173dc63e5ca82e090417c112a70132b7a7d
   && rm $ACTIVEMQ_HOME/activemq-all-$ACTIVEMQ_VERSION.jar \
   && sed -i 's@activemq.username=system@activemq.username=bill@' $ACTIVEMQ_HOME/conf/credentials.properties \
   && sed -i 's@activemq.password=manager@activemq.password=bgbilling@' $ACTIVEMQ_HOME/conf/credentials.properties \
-  && curl https://raw.githubusercontent.com/bgbilling/images-base/master/install/activemq/activemq.service -o /lib/systemd/system/activemq.service \
-  && systemctl enable activemq
+  && curl https://raw.githubusercontent.com/bgbilling/images-base/master/install/activemq/activemq.service -o /lib/systemd/system/activemq.service
