@@ -22,7 +22,6 @@ WILDFLY_META_MEMORY="-XX:MaxMetaspaceSize=200m"
   && chown -R wildfly:wildfly $WILDFLY_DIR/wildfly-$WILDFLY_VERSION \
   && chown -h wildfly:wildfly $WILDFLY_HOME \
   && chmod -R g+rw $WILDFLY_DIR/wildfly-$WILDFLY_VERSION \
-  && chmod -h g+rw $WILDFLY_HOME \
   && ls $WILDFLY_HOME \
   && sed -i 's@-Xmx512m@$WILDFLY_MEMORY $WILDFLY_DIRECT_MEMORY@' $WILDFLY_HOME/bin/standalone.conf \
   && sed -i 's@-XX:MaxMetaspaceSize=256m@$WILDFLY_META_MEMORY@' $WILDFLY_HOME/bin/standalone.conf \
