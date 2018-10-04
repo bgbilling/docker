@@ -2,7 +2,7 @@
 
 WILDFLY_VERSION=11.0.0.Final
 WILDFLY_SHA1=0e89fe0860a87bfd6b09379ee38d743642edfcfb
-WILDFLY_DIR=/opt/wildfly2
+WILDFLY_DIR=/opt/wildfly
 WILDFLY_HOME=$WILDFLY_DIR/current
 JBOSS_HOME=$WILDFLY_HOME
 
@@ -22,5 +22,7 @@ WILDFLY_META_MEMORY="-XX:MaxMetaspaceSize=200m"
   && chown -R wildfly:wildfly ${WILDFLY_DIR} \
   && chmod -R g+rw ${WILDFLY_DIR} \
   && ls $JBOSS_HOME \
-  && sed -i 's@-Xmx512m@$WILDFLY_MEMORY $WILDFLY_DIRECT_MEMORY@' $JBOSS_HOME/bin/standalone.conf \
-  && sed -i 's@-XX:MaxMetaspaceSize=256m@$WILDFLY_META_MEMORY@' $JBOSS_HOME/bin/standalone.conf
+  && sed -i 's@-Xmx512m@$WILDFLY_MEMORY $WILDFLY_DIRECT_MEMORY@' $WILDFLY_HOME/bin/standalone.conf \
+  && sed -i 's@-XX:MaxMetaspaceSize=256m@$WILDFLY_META_MEMORY@' $WILDFLY_HOME/bin/standalone.conf
+  && curl https://raw.githubusercontent.com/bgbilling/images-base/master/install/wildfly/wildfly.service -o /lib/systemd/system/wildfly.service \
+  && systemctl enable wildfly
