@@ -25,6 +25,6 @@ WILDFLY_META_MEMORY="-XX:MaxMetaspaceSize=200m"
   && chmod -h g+rw $WILDFLY_HOME \
   && ls $WILDFLY_HOME \
   && sed -i 's@-Xmx512m@$WILDFLY_MEMORY $WILDFLY_DIRECT_MEMORY@' $WILDFLY_HOME/bin/standalone.conf \
-  && sed -i 's@-XX:MaxMetaspaceSize=256m@$WILDFLY_META_MEMORY@' $WILDFLY_HOME/bin/standalone.conf
+  && sed -i 's@-XX:MaxMetaspaceSize=256m@$WILDFLY_META_MEMORY@' $WILDFLY_HOME/bin/standalone.conf \
   && curl https://raw.githubusercontent.com/bgbilling/images-base/master/install/wildfly/wildfly.service -o /lib/systemd/system/wildfly.service \
   && systemctl enable wildfly
