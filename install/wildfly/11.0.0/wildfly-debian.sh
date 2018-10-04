@@ -17,11 +17,13 @@ WILDFLY_META_MEMORY="-XX:MaxMetaspaceSize=200m"
   && tar xf /tmp/wildfly-$WILDFLY_VERSION.tar.gz -C $WILDFLY_DIR \
   && ln -s $WILDFLY_DIR/wildfly-$WILDFLY_VERSION $WILDFLY_HOME \
   && rm /tmp/wildfly-$WILDFLY_VERSION.tar.gz \
-  && mkdir -p $JBOSS_HOME/standalone/log \
+  && mkdir -p $WILDFLY_HOME/standalone/log \
   && addgroup --system wildfly && adduser --system --home $WILDFLY_HOME --no-create-home --disabled-login wildfly && adduser wildfly wildfly \
-  && chown -R wildfly:wildfly ${WILDFLY_DIR} \
-  && chmod -R g+rw ${WILDFLY_DIR} \
-  && ls $JBOSS_HOME \
+  && chown -R wildfly:wildfly $WILDFLY_DIR/wildfly-$WILDFLY_VERSION \
+  && chown -h wildfly:wildfly $WILDFLY_HOME \
+  && chmod -R g+rw $WILDFLY_DIR/wildfly-$WILDFLY_VERSION \
+  && chmod -h g+rw $WILDFLY_HOME \
+  && ls $WILDFLY_HOME \
   && sed -i 's@-Xmx512m@$WILDFLY_MEMORY $WILDFLY_DIRECT_MEMORY@' $WILDFLY_HOME/bin/standalone.conf \
   && sed -i 's@-XX:MaxMetaspaceSize=256m@$WILDFLY_META_MEMORY@' $WILDFLY_HOME/bin/standalone.conf
   && curl https://raw.githubusercontent.com/bgbilling/images-base/master/install/wildfly/wildfly.service -o /lib/systemd/system/wildfly.service \
