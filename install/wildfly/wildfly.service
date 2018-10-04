@@ -1,0 +1,15 @@
+[Unit]
+Description=Wildfly
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/wildfly/current
+ExecStart=/opt/wildfly/current/bin/standalone.sh
+Restart=on-abort
+RestartSec=60
+User=wildfly
+Group=wildfly
+
+[Install]
+WantedBy=multi-user.target
