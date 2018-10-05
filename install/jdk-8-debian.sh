@@ -30,3 +30,5 @@ update-alternatives --get-selections | awk -v home="$(readlink -f "$JAVA_HOME")"
 update-alternatives --query java | grep -q 'Status: manual'
 
 /var/lib/dpkg/info/ca-certificates-java.postinst configure
+
+export JAVA_HOME=$JAVA_HOME
