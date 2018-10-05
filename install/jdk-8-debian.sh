@@ -31,4 +31,8 @@ update-alternatives --query java | grep -q 'Status: manual'
 
 /var/lib/dpkg/info/ca-certificates-java.postinst configure
 
-export JAVA_HOME=$JAVA_HOME
+{ \
+  echo '#!/bin/sh'; \
+  echo; \
+  echo 'JAVA_HOME=/opt/java/jdk8'; \
+} > /etc/profile.d/java_home.sh
