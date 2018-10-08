@@ -1,10 +1,9 @@
 FROM bgbilling/base-jdk:8
 
-# Set the WILDFLY_VERSION env variable
 ENV WILDFLY_VERSION 11.0.0.Final
 ENV WILDFLY_SHA1 0e89fe0860a87bfd6b09379ee38d743642edfcfb
-ENV JBOSS_HOME /opt/jboss/wildfly
 ENV WILDFLY_HOME /opt/jboss/wildfly
+ENV JBOSS_HOME /opt/jboss/wildfly
 
 ENV WILDFLY_MEMORY="-Xmx512m"
 ENV WILDFLY_DIRECT_MEMORY="-XX:MaxDirectMemorySize=60m"
@@ -12,10 +11,9 @@ ENV WILDFLY_META_MEMORY="-XX:MaxMetaspaceSize=200m"
 
 USER root
 
-# Add the WildFly distribution to /opt, and make wildfly the owner of the extracted tar content
-# Make sure the distribution is available from a well-known place
 RUN set -x \
-  && mkdir -p /opt/jboss \
+  && [ ! -d $WILDFLY_HOME ] \
+  && mkdir -p $WILDFLY_DIR \
   && cd $HOME \
   && curl -O https://download.jboss.org/wildfly/$WILDFLY_VERSION/wildfly-$WILDFLY_VERSION.tar.gz \
   && sha1sum wildfly-$WILDFLY_VERSION.tar.gz | grep $WILDFLY_SHA1 \
