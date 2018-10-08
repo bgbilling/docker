@@ -16,7 +16,7 @@ set -x \
   && ln -s /opt/activemq/$ACTIVEMQ $ACTIVEMQ_HOME \
   && rm $ACTIVEMQ_HOME/conf/activemq.xml \
   && curl https://raw.githubusercontent.com/bgbilling/images-base/master/install/activemq/activemq.xml -o $ACTIVEMQ_HOME/conf/activemq.xml \
-  && addgroup --system activemq && adduser --system --home $ACTIVEMQ_HOME --no-create-home --disabled-login activemq && adduser activemq activemq \
+  && /usr/sbin/groupadd --system activemq && /usr/sbin/useradd --system --home-dir $ACTIVEMQ_HOME --gid activemq --no-create-home activemq \
   && chown -R activemq:activemq /opt/activemq/$ACTIVEMQ \
   && chown -h activemq:activemq $ACTIVEMQ_HOME \
   && rm /tmp/$ACTIVEMQ-bin.tar.gz \

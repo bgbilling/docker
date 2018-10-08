@@ -19,7 +19,7 @@ set -x \
   && ln -s $WILDFLY_DIR/wildfly-$WILDFLY_VERSION $WILDFLY_HOME \
   && rm /tmp/wildfly-$WILDFLY_VERSION.tar.gz \
   && mkdir -p $WILDFLY_HOME/standalone/log \
-  && addgroup --system wildfly && adduser --system --home $WILDFLY_HOME --no-create-home --disabled-login wildfly && adduser wildfly wildfly \
+  && /usr/sbin/groupadd --system wildfly && /usr/sbin/useradd --system --home-dir $WILDFLY_HOME --gid wildfly --no-create-home wildfly \
   && chown -R wildfly:wildfly $WILDFLY_DIR/wildfly-$WILDFLY_VERSION \
   && chown -h wildfly:wildfly $WILDFLY_HOME \
   && chmod -R g+rw $WILDFLY_DIR/wildfly-$WILDFLY_VERSION \
