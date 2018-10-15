@@ -33,7 +33,7 @@ if cat /etc/os-release | grep -Eq '\bDebian\b'; then
   echo '!includedir /etc/mysql/common' >> /etc/mysql/my.cnf
   echo '' >> /etc/mysql/my.cnf
 
-elsif cat /etc/centos-release | grep -Eq '\bCentOS\b'; then
+elif cat /etc/centos-release | grep -Eq '\bCentOS\b'; then
 
   { \
     echo '[mariadb]'; \
