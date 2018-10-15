@@ -1,5 +1,8 @@
 #!/bin/sh -eux
 
+URL_BASE=$URL/images-base/master/install
+
+
 echo "Checking prerequisite utilities (curl,wget)"
 [ -n "`which wget`" ]
 [ -n "`which curl`" ]
