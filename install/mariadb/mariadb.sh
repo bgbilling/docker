@@ -1,5 +1,6 @@
 #!/bin/sh -eux
 
+URL=https://raw.githubusercontent.com/bgbilling
 URL_BASE=$URL/images-base/master/install
 
 
