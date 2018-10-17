@@ -19,8 +19,8 @@ if cat /etc/os-release | grep -Eq '\bDebian\b'; then
 
   export DEBIAN_FRONTEND=noninteractive
 
-  echo "mysql-community-server mysql-community-server/root-pass password $MYSQL_PASS" | debconf-set-selections
-  echo "mysql-community-server mysql-community-server/re-root-pass password $MYSQL_PASS" | debconf-set-selections
+  echo "mysql-community-server mysql-community-server/root-pass password ''" | debconf-set-selections
+  echo "mysql-community-server mysql-community-server/re-root-pass password ''" | debconf-set-selections
   echo "mysql-community-server mysql-community-server/data-dir select ''" | debconf-set-selections
 
   curl -fsSL https://dev.mysql.com/get/mysql-apt-config_0.8.9-1_all.deb -o mysql-apt-config_0.8.9-1_all.deb
