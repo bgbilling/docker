@@ -19,14 +19,14 @@ if cat /etc/os-release | grep -Eq '\bDebian\b'; then
 
   export DEBIAN_FRONTEND=noninteractive
 
-  echo "mysql-community-server mysql-community-server/root-pass password ''" | debconf-set-selections
-  echo "mysql-community-server mysql-community-server/re-root-pass password ''" | debconf-set-selections
-  echo "mysql-community-server mysql-community-server/data-dir select ''" | debconf-set-selections
+  echo "mysql-server-5.7 mysql-server/root-pass password ''" | debconf-set-selections
+  echo "mysql-server-5.7 mysql-server/re-root-pass password ''" | debconf-set-selections
+  echo "mysql-server-5.7 mysql-server/data-dir select ''" | debconf-set-selections
 
   curl -fsSL https://dev.mysql.com/get/mysql-apt-config_0.8.9-1_all.deb -o mysql-apt-config_0.8.9-1_all.deb
   dpkg -i mysql-apt-config*
 
-  apt-get update && apt-get install -y mysql-server
+  apt-get update && apt-get install -y mysql-server-5.7 mysql-client-5.7
   rm mysql-apt-config*
   
   if [ -f /lib/systemd/system/mysqld.service ]; then mysql=mysqld; fi
