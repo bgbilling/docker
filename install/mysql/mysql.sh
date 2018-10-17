@@ -17,6 +17,8 @@ mysql=mysql
 
 if cat /etc/os-release | grep -Eq '\bDebian\b'; then
 
+  export DEBIAN_FRONTEND=noninteractive
+
   echo "mysql-community-server mysql-community-server/root-pass password $MYSQL_PASS" | debconf-set-selections
   echo "mysql-community-server mysql-community-server/re-root-pass password $MYSQL_PASS" | debconf-set-selections
   echo "mysql-community-server mysql-community-server/data-dir select ''" | debconf-set-selections
