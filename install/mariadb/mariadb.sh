@@ -71,7 +71,8 @@ mkdir -p /etc/systemd/system/mariadb.service.d/
   echo '[Service]'; \
   echo 'LimitNOFILE=10000'; \
 } > /etc/systemd/system/mariadb.service.d/limits.conf
- 
+
+systemctl daemon-reload
 systemctl restart mariadb
 
 mysql -e "set global innodb_fast_shutdown = 0;"

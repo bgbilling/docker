@@ -81,6 +81,7 @@ mkdir -p /etc/systemd/system/${mysql}.service.d/
   echo 'LimitNOFILE=10000'; \
 } > /etc/systemd/system/${mysql}.service.d/limits.conf
  
+systemctl daemon-reload
 systemctl restart $mysql
 
 mysql -e "set global innodb_fast_shutdown = 0;"
