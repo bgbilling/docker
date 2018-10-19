@@ -48,6 +48,7 @@ elif cat /etc/centos-release | grep -Eq '\bCentOS\b'; then
   #yum localinstall mysql57-community-release-el7-7.noarch.rpm
   #yum repolist enabled | grep "mysql.*-community.*
   rpm -ivh mysql57-community-release-el7.rpm
+  rm mysql57-community-release-el7.rpm
   yum update -y
   yum install -y mysql-server mysql-client
 
