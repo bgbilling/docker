@@ -20,9 +20,13 @@ JAVA_HOME=/opt/java/jdk8
 mkdir -p /opt/java \
   && ln -svT "/usr/lib/jvm/java-8-openjdk-$(dpkg --print-architecture)" /opt/java/jdk8
 
+#apt-get install -y --no-install-recommends \
+#  openjdk-8-jdk="$JAVA_DEBIAN_VERSION" \
+#  ca-certificates-java="$CA_CERTIFICATES_JAVA_VERSION"
+  
 apt-get install -y --no-install-recommends \
-  openjdk-8-jdk="$JAVA_DEBIAN_VERSION" \
-  ca-certificates-java="$CA_CERTIFICATES_JAVA_VERSION"
+  openjdk-8-jdk \
+  ca-certificates-java
 
 [ "$(readlink -f "$JAVA_HOME")" = "$(/tmp/check-java-home)" ]
 
