@@ -2,7 +2,7 @@ FROM bgbilling/base-jdk:8
 
 ENV WILDFLY_VERSION 11.0.0.Final
 ENV WILDFLY_SHA1 0e89fe0860a87bfd6b09379ee38d743642edfcfb
-ARG WILDFLY_DIR=/opt/wildfly
+ARG WILDFLY_DIR=/opt/jboss
 ENV WILDFLY_HOME /opt/jboss/wildfly
 ENV JBOSS_HOME /opt/jboss/wildfly
 
