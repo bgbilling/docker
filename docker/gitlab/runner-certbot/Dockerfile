@@ -11,9 +11,6 @@ RUN echo "deb http://ftp.debian.org/debian stretch-backports main" >> /etc/apt/s
     netcat \
     ca-certificates \
     procps \
-    openjfx \
-    git \
-    mysql-client \
     openssh-client \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* \
