@@ -12,6 +12,7 @@ RUN echo "deb http://ftp.debian.org/debian stretch-backports main" >> /etc/apt/s
     ca-certificates \
     procps \
     openssh-client \
+    sshfs \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* \
   && rm -rf /var/cache/apk/* \
