@@ -38,5 +38,5 @@ update-alternatives --query java | grep -q 'Status: manual'
 { \
   echo '#!/bin/sh'; \
   echo; \
-  echo 'JAVA_HOME=/opt/java/jdk8'; \
+  echo 'export JAVA_HOME=/opt/java/jdk8'; \
 } > /etc/profile.d/java_home.sh
