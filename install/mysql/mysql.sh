@@ -26,6 +26,9 @@ if cat /etc/os-release | grep -Eq '\bDebian\b'; then
 
   curl -fsSL https://dev.mysql.com/get/mysql-apt-config_0.8.9-1_all.deb -o mysql-apt-config_0.8.9-1_all.deb
   dpkg -i mysql-apt-config*
+  
+  sudo apt-key adv --keyserver keys.gnupg.net --recv-keys 5072E1F5
+  sudo apt-key adv --keyserver keys.gnupg.net --recv-keys 8C718D3B5072E1F5
 
   apt-get update && apt-get install -y mysql-server mysql-client
   rm mysql-apt-config*
