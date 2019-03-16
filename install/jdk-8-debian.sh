@@ -40,3 +40,7 @@ update-alternatives --query java | grep -q 'Status: manual'
   echo; \
   echo 'export JAVA_HOME=/opt/java/jdk8'; \
 } > /etc/profile.d/java_home.sh
+
+{ \
+  echo 'Defaults        env_keep +="JAVA_HOME"'; \
+} > /etc/sudoers.d/javahome
