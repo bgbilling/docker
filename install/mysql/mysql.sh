@@ -4,9 +4,10 @@ URL=https://raw.githubusercontent.com/bgbilling
 URL_BASE=$URL/images-base/master/install
 
 
-echo "Checking prerequisite utilities (curl,wget)"
+echo "Checking prerequisite utilities (curl,wget,dirmngr)"
 [ -n "`which wget`" ]
 [ -n "`which curl`" ]
+[ -n "`which dirmngr`" ]
 
 
 [ ! -d /var/lib/mysql ]
