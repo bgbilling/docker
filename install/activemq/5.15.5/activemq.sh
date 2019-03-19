@@ -26,3 +26,5 @@ set -x \
   && sed -i 's@0.0.0.0@127.0.0.1@' $ACTIVEMQ_HOME/conf/jetty.xml \
   && sed -i 's@#JAVA_HOME=""@JAVA_HOME="/opt/java/jdk8"@' $ACTIVEMQ_HOME/bin/env \
   && curl https://raw.githubusercontent.com/bgbilling/images-base/master/install/activemq/activemq.service -o /lib/systemd/system/activemq.service
+  && ([ -z "`which systemctl`" ] || systemctl enable activemq)
+  && ([ -z "`which systemctl`" ] || systemctl start activemq)
