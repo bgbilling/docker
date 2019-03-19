@@ -4,10 +4,9 @@ URL=https://raw.githubusercontent.com/bgbilling
 URL_BASE=$URL/images-base/master/install
 
 
-echo "Checking prerequisite utilities (curl,wget,dirmngr)"
+echo "Checking prerequisite utilities (curl,wget)"
 [ -n "`which wget`" ]
 [ -n "`which curl`" ]
-[ -n "`which dirmngr`" ]
 
 
 [ ! -d /var/lib/mysql ]
@@ -17,6 +16,9 @@ echo "Installing MySQL"
 mysql=mysql
 
 if cat /etc/os-release | grep -Eq '\bDebian\b'; then
+	
+  echo "Checking prerequisite utilities (dirmngr)"
+  [ -n "`which dirmngr`" ]
 
   export DEBIAN_FRONTEND=noninteractive
 
