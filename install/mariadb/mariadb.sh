@@ -22,9 +22,9 @@ if cat /etc/os-release | grep -Eq '\bDebian\b'; then
   apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xF1656F24C74CD1D8
   
   if cat /etc/os-release | grep -Eq '\bstretch\b'; then
-    add-apt-repository "deb [arch=amd64,i386,ppc64el] http://mariadb.cu.be/repo/$VERSION/debian stretch main"
+    add-apt-repository "deb [arch=amd64,i386,ppc64el] http://ams2.mirrors.digitalocean.com/mariadb/repo/$VERSION/debian stretch main"
   elif cat /etc/os-release | grep -Eq '\bbuster\b'; then
-    add-apt-repository "deb [arch=amd64,i386,ppc64el] http://mariadb.cu.be/repo/$VERSION/debian buster main"
+    add-apt-repository "deb [arch=amd64,i386,ppc64el] http://ams2.mirrors.digitalocean.com/mariadb/repo/$VERSION/debian buster main"
   else
     echo "OS release not supported by script"
     exit -1;
