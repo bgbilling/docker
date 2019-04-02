@@ -17,7 +17,8 @@ echo "Installing MariaDB"
 
 if cat /etc/os-release | grep -Eq '\bDebian\b'; then
 
-  apt-get -q -y install --no-install-recommends dirmngr
+  apt-get update
+  apt-get -q -y install --no-install-recommends software-properties-common dirmngr
   apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xF1656F24C74CD1D8
   
   if cat /etc/os-release | grep -Eq '\bstretch\b'; then
